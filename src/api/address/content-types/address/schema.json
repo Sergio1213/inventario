@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "addresses",
+  "info": {
+    "singularName": "address",
+    "pluralName": "addresses",
+    "displayName": "address",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ciudad": {
+      "type": "string"
+    },
+    "colonia": {
+      "type": "string"
+    },
+    "calle": {
+      "type": "string"
+    },
+    "numero": {
+      "type": "email"
+    },
+    "pais": {
+      "type": "string"
+    }
+  }
+}

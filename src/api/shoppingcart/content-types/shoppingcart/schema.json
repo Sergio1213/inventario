@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shoppingcarts",
+  "info": {
+    "singularName": "shoppingcart",
+    "pluralName": "shoppingcarts",
+    "displayName": "shoppingcart",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "total": {
+      "type": "biginteger"
+    },
+    "cart_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cart-item.cart-item",
+      "mappedBy": "shoppingcart"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "shoppingcart"
+    }
+  }
+}
