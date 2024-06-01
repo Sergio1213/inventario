@@ -4,7 +4,8 @@
   "info": {
     "singularName": "cart-item",
     "pluralName": "cart-items",
-    "displayName": "cart item"
+    "displayName": "cart item",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -25,9 +26,9 @@
     },
     "shoppingcart": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToOne",
       "target": "api::shoppingcart.shoppingcart",
-      "inversedBy": "cart_items"
+      "inversedBy": "cart_item"
     }
   }
 }

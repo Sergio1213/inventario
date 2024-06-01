@@ -18,9 +18,6 @@
     "image": {
       "type": "string"
     },
-    "color": {
-      "type": "string"
-    },
     "price": {
       "type": "biginteger"
     },
@@ -36,8 +33,17 @@
       "target": "api::cart-item.cart-item",
       "mappedBy": "product"
     },
-    "categoria": {
-      "type": "string"
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "color": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::color.color",
+      "inversedBy": "products"
     }
   }
 }

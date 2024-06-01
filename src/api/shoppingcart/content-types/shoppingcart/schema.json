@@ -15,17 +15,17 @@
     "total": {
       "type": "biginteger"
     },
-    "cart_items": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::cart-item.cart-item",
-      "mappedBy": "shoppingcart"
-    },
-    "users_permissions_user": {
+    "user": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "shoppingcart"
+    },
+    "cart_item": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cart-item.cart-item",
+      "mappedBy": "shoppingcart"
     }
   }
 }

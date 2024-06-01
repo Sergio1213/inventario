@@ -362,165 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiAddressAddress extends Schema.CollectionType {
-  collectionName: 'addresses';
-  info: {
-    singularName: 'address';
-    pluralName: 'addresses';
-    displayName: 'address';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    ciudad: Attribute.String;
-    colonia: Attribute.String;
-    calle: Attribute.String;
-    numero: Attribute.Email;
-    pais: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::address.address',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::address.address',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiCartItemCartItem extends Schema.CollectionType {
-  collectionName: 'cart_items';
-  info: {
-    singularName: 'cart-item';
-    pluralName: 'cart-items';
-    displayName: 'cart item';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    cantidad: Attribute.Integer;
-    precio: Attribute.BigInteger;
-    product: Attribute.Relation<
-      'api::cart-item.cart-item',
-      'manyToOne',
-      'api::product.product'
-    >;
-    shoppingcart: Attribute.Relation<
-      'api::cart-item.cart-item',
-      'manyToOne',
-      'api::shoppingcart.shoppingcart'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::cart-item.cart-item',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::cart-item.cart-item',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiProductProduct extends Schema.CollectionType {
-  collectionName: 'products';
-  info: {
-    singularName: 'product';
-    pluralName: 'products';
-    displayName: 'product';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    image: Attribute.String;
-    color: Attribute.String;
-    price: Attribute.BigInteger;
-    description: Attribute.Text;
-    text_image: Attribute.String;
-    cart_items: Attribute.Relation<
-      'api::product.product',
-      'oneToMany',
-      'api::cart-item.cart-item'
-    >;
-    categoria: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::product.product',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::product.product',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiShoppingcartShoppingcart extends Schema.CollectionType {
-  collectionName: 'shoppingcarts';
-  info: {
-    singularName: 'shoppingcart';
-    pluralName: 'shoppingcarts';
-    displayName: 'shoppingcart';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    total: Attribute.BigInteger;
-    cart_items: Attribute.Relation<
-      'api::shoppingcart.shoppingcart',
-      'oneToMany',
-      'api::cart-item.cart-item'
-    >;
-    users_permissions_user: Attribute.Relation<
-      'api::shoppingcart.shoppingcart',
-      'oneToOne',
-      'plugin::users-permissions.user'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::shoppingcart.shoppingcart',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::shoppingcart.shoppingcart',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -953,6 +794,246 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAddressAddress extends Schema.CollectionType {
+  collectionName: 'addresses';
+  info: {
+    singularName: 'address';
+    pluralName: 'addresses';
+    displayName: 'address';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ciudad: Attribute.String;
+    colonia: Attribute.String;
+    calle: Attribute.String;
+    numero: Attribute.Email;
+    pais: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::address.address',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::address.address',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCartItemCartItem extends Schema.CollectionType {
+  collectionName: 'cart_items';
+  info: {
+    singularName: 'cart-item';
+    pluralName: 'cart-items';
+    displayName: 'cart item';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cantidad: Attribute.Integer;
+    precio: Attribute.BigInteger;
+    product: Attribute.Relation<
+      'api::cart-item.cart-item',
+      'manyToOne',
+      'api::product.product'
+    >;
+    shoppingcart: Attribute.Relation<
+      'api::cart-item.cart-item',
+      'oneToOne',
+      'api::shoppingcart.shoppingcart'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::cart-item.cart-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::cart-item.cart-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'Category';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Attribute.String;
+    products: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::product.product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiColorColor extends Schema.CollectionType {
+  collectionName: 'colors';
+  info: {
+    singularName: 'color';
+    pluralName: 'colors';
+    displayName: 'color';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    color: Attribute.String;
+    products: Attribute.Relation<
+      'api::color.color',
+      'oneToMany',
+      'api::product.product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::color.color',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::color.color',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProductProduct extends Schema.CollectionType {
+  collectionName: 'products';
+  info: {
+    singularName: 'product';
+    pluralName: 'products';
+    displayName: 'product';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    image: Attribute.String;
+    price: Attribute.BigInteger;
+    description: Attribute.Text;
+    text_image: Attribute.String;
+    cart_items: Attribute.Relation<
+      'api::product.product',
+      'oneToMany',
+      'api::cart-item.cart-item'
+    >;
+    category: Attribute.Relation<
+      'api::product.product',
+      'manyToOne',
+      'api::category.category'
+    >;
+    color: Attribute.Relation<
+      'api::product.product',
+      'manyToOne',
+      'api::color.color'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiShoppingcartShoppingcart extends Schema.CollectionType {
+  collectionName: 'shoppingcarts';
+  info: {
+    singularName: 'shoppingcart';
+    pluralName: 'shoppingcarts';
+    displayName: 'shoppingcart';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    total: Attribute.BigInteger;
+    user: Attribute.Relation<
+      'api::shoppingcart.shoppingcart',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    cart_item: Attribute.Relation<
+      'api::shoppingcart.shoppingcart',
+      'oneToOne',
+      'api::cart-item.cart-item'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::shoppingcart.shoppingcart',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::shoppingcart.shoppingcart',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -963,10 +1044,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::address.address': ApiAddressAddress;
-      'api::cart-item.cart-item': ApiCartItemCartItem;
-      'api::product.product': ApiProductProduct;
-      'api::shoppingcart.shoppingcart': ApiShoppingcartShoppingcart;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -975,6 +1052,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::address.address': ApiAddressAddress;
+      'api::cart-item.cart-item': ApiCartItemCartItem;
+      'api::category.category': ApiCategoryCategory;
+      'api::color.color': ApiColorColor;
+      'api::product.product': ApiProductProduct;
+      'api::shoppingcart.shoppingcart': ApiShoppingcartShoppingcart;
     }
   }
 }
