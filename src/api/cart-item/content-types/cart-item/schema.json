@@ -26,9 +26,9 @@
     },
     "shoppingcart": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "api::shoppingcart.shoppingcart",
-      "inversedBy": "cart_item"
+      "inversedBy": "cart_items"
     }
   }
 }

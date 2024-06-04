@@ -850,7 +850,7 @@ export interface ApiCartItemCartItem extends Schema.CollectionType {
     >;
     shoppingcart: Attribute.Relation<
       'api::cart-item.cart-item',
-      'oneToOne',
+      'manyToOne',
       'api::shoppingcart.shoppingcart'
     >;
     createdAt: Attribute.DateTime;
@@ -1011,9 +1011,9 @@ export interface ApiShoppingcartShoppingcart extends Schema.CollectionType {
       'oneToOne',
       'plugin::users-permissions.user'
     >;
-    cart_item: Attribute.Relation<
+    cart_items: Attribute.Relation<
       'api::shoppingcart.shoppingcart',
-      'oneToOne',
+      'oneToMany',
       'api::cart-item.cart-item'
     >;
     createdAt: Attribute.DateTime;
